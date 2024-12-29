@@ -1,0 +1,157 @@
+<link rel="stylesheet" type="text/css" href="../style.css">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap">
+<html>
+<head><title>Ian Green &bull; 2025 Portfolio &bull; A Hat in Time: Nyakuza Metro</title></head>
+<body>
+<div class="title">Ian Green &bull; 2025 Portfolio &bull; A Hat in Time: Nyakuza Metro</div>
+<div class="header-buttons">
+<a href="../index.html#ycg"><div class="header-button">Yacht Club Games</div></a>
+<a href="../index.html#gfb"><div class="header-button">Gears for Breakfast</div></a>
+</div>
+
+<div id="toc_container">
+<p class="toc_title">Contents</p>
+<ul class="toc_list">
+	<li><a href="#cattrains">Cat Trains</a></li>
+	<li><a href="#metrocity">Metro City Level</a></li>
+	<li><a href="#alleycats">Alley Cats</a></li>
+	<li><a href="#npcs">Alley Cats</a></li>
+	<li><a href="#nyakuza">Nyakuza Thugs</a></li>
+	<li><a href="#catvacuum">Cat Vacuums</a></li>
+	<li><a href="#secretarea">Metro Secret Area</a></li>
+</ul>
+</div>
+
+<div class="paper">
+
+<h1 id="cattrains">Cat Trains</h1>
+
+<p>The main hook of Nyakuza Metro are these big snake-like trains pulled by gigantic cats. It was my primary duty during development of Nyakuza Metro to make these things work, make them fun to jump on, and make them easy to set up in the level.</p>
+
+<h5>Full Playthrough</h5>
+<video width="100%" controls>
+<source src="vid/PinkPawManhole.mp4" type="video/mp4">
+<p><a href="vid/PinkPawManhole.mp4">Click Here to View</a></p>
+</video>
+
+<p>The video above is Pink Paw Manhole, challenge level I made that branches off of the Pink Paw district of Nyakuza Metro. The "manhole" challenges were what we on the design team were working on while the art teams finished up the main area of Nyakuza Metro, so it looks a little more rough than the main level. Most of my time during Nyakuza Metro was spent developing the Cat Trains and other gameplay mechanics, but this level turned out to be a fan favorite, so I'm very glad I found time to make it!</p>
+
+</div>
+
+<div class="paper">
+
+<h1 id="metrocity">Level: Metro City Midnight</h1>
+
+<p>Metro City Midnight is a level I developed as a free add-on for A Hat in Time, releasing after Nyakuza Metro. I had a lot of ideas left over after Nyakuza Metro wrapped, so I decided to build a level out of them. This is my favorite level I made for A Hat in Time, and I have a lot to say about every part of it, so the video below has a developer commentary.</p>
+
+<h5>Full Playthrough (With Commentary!)</h5>
+<video width="100%" controls>
+<source src="vid/MetroCityMidnight.mp4" type="video/mp4">
+<p><a href="vid/MetroCityMidnight.mp4">Click Here to View</a></p>
+</video>
+
+<br><br>
+
+</div>
+
+<div class="paper">
+
+<h1 id="alleycats">Enemy: Alley Cats</h1>
+
+<p>I made these alley cats as a general purpose enemy in the Nyakuza Metro. We already have a version of these cats that turn invisible, but they aren't particularly fun to fight against. These cats don't turn invisible, but they have a lot of new movement behaviors to pressure the player from a variety of angles.</p>
+
+<h5>Alley Cats Enemy Demo</h5>
+<video width="100%" controls>
+<source src="vid/AlleyCatsGameplay.mp4" type="video/mp4">
+<p><a href="vid/AlleyCatsGameplay.mp4">Click Here to View</a></p>
+</video>
+
+<p>Like the invisible version of this enemy, these cats can also steal your hat. What's new for this version of the enemy is the movement strategy of the cat that stole your hat. After he steals your hat, the thief cat will scan the area of allies that are hiding out of sight and run to hide with them. This leads the player into an ambush, where all the cats are alerted once they have vision on you.</p>
+
+<p>From there, the attacking cats will circle you, attacking from various angles before backing off. To keep the player from being overwhelmed, much like the Nyakuza Thug enemies, the rate of attacks is based on how many other cats are nearby. During the fight, the thief cat with your hat will keep its distance from you, and will let the other cats attack. This creates a dynamic fight where the player is just trying to get their hat back and these other hostile cats are standing in her way.</p>
+
+<p>Once all the attacking cats are defeated, the cat with your hat will stop running away and start attacking you himself, since I didn't want the player to have to chase him down after winning the fight.</p>
+
+</div>
+
+<div class="paper">
+
+<h1 id="npcs">NPC: Metro Cats</h1>
+
+<img src="img/metro_cats.jpg" style="width:100%;"/>
+
+<p>These weirdly-shaped black cats wander around the common areas of Nyakuza Metro. It's easy to make these things just walk from point-to-point, but I tried to add little emergent behaviors so they felt like they were really there.</p>
+
+<p>If an NPC is walking around and Hat Kid gets in the way, or just stands near them for too long, they will stop what they're doing and stare at her before walking away from her. You made it awkward!</p>
+
+<p>If they walk near another cat, they may decide to start up a "conversation", walking up to each other and playing a talking animation back and forth before dispersing. These can occur with more than two cats at a time, creating lively little clusters if they all decide to talk. Are they talking about you? If you walk up and try to join, they will all glare at you and disperse. This gives you the impression that these cats really don't like you.</p>
+
+<p>They'll also do things like stand and wait if another cat is interacting with a point they want to interact with, forming an impromptu queue if one cat is taking too long. Hat Kid can also stand in the cat queues alongside the other cats, and they'll actually make space for you! You can do this while lining up to buy a ticket, though most players will just skip to the front of the line. How rude. No wonder they don't like you!</p>
+
+</div>
+
+<div class="paper">
+
+<h1 id="nyakuza">Enemy: Nyakuza Thugs</h1>
+
+<p>During the finale, the Metro Cats all equip Nyakuza masks and reveal they were working for the cat gang the whole time!</p>
+
+<p>I made these enemies for the Nyakuza Metro finale's escape sequence, where Hat Kid is chased out of the metro. Since you are meant to run away from these enemies, not fight them, their design had to be a bit different from a standard enemy.</p>
+
+<p>The Nyakuza Thug enemies are invincible, and will circle around Hat Kid menacingly, lunging at her to attack. Since there were going to be large crowds of these enemies, I designed them to take crowding into account, and only two of them will be openly hostile towards the player at any given moment, while the others stay in their circling pattern.</p>
+
+<p>Since Hat Kid is very mobile and will be running away from these enemies most of the time, it was difficult to keep these enemies feeling threatening if they simply trailed behind you off screen. So I made them lunge at her from a great distance, closing the gap immediately. This way, even if you are running away from them at full tilt, you will still see them nipping at your heels, popping into frame briefly to attempt an attack. They also had to be able to follow you as you jump from platform to platform, which was a first for A Hat in Time!</p>
+
+<h5>Nyakuza Thugs Enemy Demo</h5>
+<video width="100%" controls>
+<source src="vid/NyakuzaThugsGameplay.mp4" type="video/mp4">
+<p><a href="vid/NyakuzaThugsGameplay.mp4">Click Here to View</a></p>
+</video>
+
+<br><br>
+
+</div>
+
+<div class="paper">
+
+<h1 id="catvacuum">Cat Vacuum Bounce Pads</h1>
+
+<p>These cat-shaped vacuums were designed to be omni-directional springpads. Designing and implementing these was handled by a few different developers, but my role in this was to set up their directional bouncing behavior.</p>
+
+<p>Hitting the vacuums on the wall launches you upwards, but also mirrors your velocity off the wall like more of a bounce. This gives the vacuums some fun momentum to play with.</p>
+
+<p>In places where these needed to launch you to specific platforms, I set up a system where you can define several authored landing points in the world. When bouncing off the vacuum, it will pick the destination point that matches your trajectory the closest. The result is a somewhat unique bounce pad that preserves the feeling of having control over your trajectory and momentum.</p>
+
+<h5>Cat Vacuum Gameplay Demo</h5>
+<video width="100%" controls>
+<source src="vid/CatVacuumGameplay.mp4" type="video/mp4">
+<p><a href="vid/CatVacuumGameplay.mp4">Click Here to View</a></p>
+</video>
+
+<br><br>
+
+</div>
+
+<div class="paper">
+
+<h1 id="secretarea">Nyakuza Metro Secret Area</h1>
+
+<p>It's common knowledge that there's actually a secret challenge in this level. If you press all the red buttons after completing the main objective of Pink Paw Manhole, a door opens and you enter a Death Wish themed train route! This route is a little more challenging than the others, and includes some of Death Wish's signature dramatic flair.</p>
+
+<h5>Secret Area Playthrough</h5>
+<video width="100%" controls>
+<source src="vid/SecretTrainTunnel.mp4" type="video/mp4">
+<p><a href="vid/SecretTrainTunnel.mp4">Click Here to View</a></p>
+</video>
+
+<br><br>
+
+</div>
+
+<div class="footer-buttons"><a href="../index.html#gfb"><div class="header-button">◀ Back</div></a></div>
+
+<div class="footer">Meow!</div>
+
+<br><br>
+</body>
+</html>

@@ -1,27 +1,21 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap">
 <html>
-<head><title>Ian Green &bull; 2022 Portfolio</title></head>
+<head><title>Ian Green &bull; 2025 Portfolio</title></head>
 <body>
-<div class="title">Ian Green &bull; 2022 Portfolio</div>
+<div class="title">Ian Green &bull; 2025 Portfolio</div>
 <div class="header-buttons">
-<a href="index.html#gameplay"><div class="header-button">Gameplay</div></a>
-<a href="index.html#level"><div class="header-button">Level Design</div></a>
-<a href="index.html#docs"><div class="header-button">Documentation</div></a>
-<a href="index.html#art"><div class="header-button">Art & Writing</div></a>
+<a href="#ycg"><div class="header-button">Yacht Club Games</div></a>
+<a href="#gfb"><div class="header-button">Gears for Breakfast</div></a>
 </div>
 
 <div class="paper">
 
 <h1 id="about">💬 About</h1>
 
-<p>Hi, I'm Ian Green, a Game Designer who has been working at <b><a href="https://www.gearsforbreakfast.com/">Gears for Breakfast</a></b> from late 2017 to 2022. During my tenure I worked on <b><a href="https://en.wikipedia.org/wiki/A_Hat_in_Time">A Hat in Time</a></b> until 2019, and their <b>Second Game</b> (no official name yet) from 2019 onward.</p>
+<p>Hi, I'm Ian Green, child of '89 and long time game developer. My passion is gameplay design, but I've worn many hats to make those designs possible, from programming to art to 3D modeling. I originally picked up these skills as an aspiring solo developer, but in the workplace I've found these skills enable me to fit into any role (even the weird ones), and easily collaborate across multiple disciplines. Thus, Ian Green the Technical Designer was born!</p>
 
-<p>At Gears for Breakfast I specialized in a few different fields that were grouped into the title of Technical Designer. These being: gameplay design, level design, documentation/specification, prototyping, programming, UI design, dialogue writing, and a little bit of 2D and 3D art sprinkled in there for good measure.</p>
-
-<p>In this document you will find a sample of my work at Gears for Breakfast, primarily my 2018-2019 work on A Hat in Time, since the Second Game is still under a non-disclosure agreement. All of the work from A Hat in Time was done using Unreal Engine 3, while the Second Game was made using Unreal Engine 4/5.</p>
-
-<p>For more info, reach out to me at <span id="address"><noscript><b>[Activate Javascript to view]</b></noscript></span>!</p>
+<p>This page elaborates on things I briefly touched on in my resume. If you want a copy of my resume, or just want to say hello, reach out to me at <span id="address"><noscript><b>[Activate Javascript to view]</b></noscript></span>!</p>
 <script type="text/javascript">
 function rot13(str) {
 	return str.replace(/[a-zA-Z]/g, function(chr) {
@@ -34,124 +28,78 @@ var elink = "<a href=\"mailto:" + em + "\">" + em + "<\/a>"
 document.getElementById("address").innerHTML = elink;
 </script>
 
-<span id="gameplay"/>
+<span id="ycg"/>
 </div>
 
 <div class="paper">
 
-<h1>🕹️ Gameplay Design</h1>
+<h1>🚢 Yacht Club Games</h1>
 
-<p>Listed below is a collection of some of the gameplay design work I did at Gears for Breakfast! In addition to designing these, I also implemented a lot of them myself, since I wore a few different hats at the company.</p>
+<p>I worked at <a href="https://en.wikipedia.org/wiki/Yacht_Club_Games">Yacht Club Games</a> as a Designer from 2022 to 2024. The bulk of my work was on an <a href="https://www.theverge.com/2024/6/14/24178773/shovel-knight-sequel-new-dimension-3d">Untitled Game</a> featuring everyone's favorite Shoveling Knight. I also rounded out the design team on <a href="https://en.wikipedia.org/wiki/Mina_the_Hollower">Mina the Hollower</a>.</p>
 
-<a href="gameplay/gfb-game2.html" class="project">
-<img src="images/tile_game2.png">
+<a href="ycg/shovel.html" class="project">
+<img src="img/tile_shovel.png">
+<div class="date">2022 - 2024</div>
+<h6>Untitled Shovel Knight Game</h6>
+A new mainline Shovel Knight game, bringing him into a brand new dimension!
+</a>
+
+<a href="ycg/mina.html" class="project">
+<img src="img/tile_mina.png">
+<div class="date">2024</div>
+<h6>Mina the Hollower</h6>
+A charmingly retro gothic horror dungeon crawler inspired by Links Awakening and Castlevania.
+</a>
+
+<span id="gfb"/>
+</div>
+
+<div class="paper">
+
+<h1>⚙️ Gears for Breakfast</h1>
+
+<p>I worked at <a href="https://www.gearsforbreakfast.com/">Gears for Breakfast</a> as a Technical Designer from 2017 to 2022. I worked on <a href="https://en.wikipedia.org/wiki/A_Hat_in_Time">A Hat in Time</a> until 2019, and our <a href="gfb/gfb-game2.html">Unannounced Second Game</a> from 2019 onward.</p>
+
+<p>At Gears for Breakfast I wore a lot of hats, working on gameplay design, level design, programming, prototyping, documentation, UI design, dialogue writing, and a little bit of 2D and 3D art for kicks.</p>
+
+<a href="gfb/gfb-game2.html" class="project">
+<img src="img/tile_game2.png">
 <div class="date">2019 - 2022</div>
-<h6>Gears for Breakfast's Second Game</h6>
-An abstract overview of some of my gameplay work on an unannounced project.
+<h6>Unannounced Second Game</h6>
+Not much is public about this Unreal Engine 5 game, but it's what I spent the majority of my time at GFB working on!
 </a>
 
-<a href="gameplay/nyakuza-metro.html" class="project">
-<img src="images/tile_dlc2.png">
-<div class="date">2018 - 2019</div>
-<h6>A Hat in Time: Nyakuza Metro</h6>
-This Hat in Time expansion centered around an underground complex full of trains pulled by giant cats. This DLC contained <b>Online Party</b> as well!
+<a href="gfb/ahit.html" class="project">
+<img src="img/tile_misc.png">
+<div class="date">2017 - 2019</div>
+<h6>A Hat in Time Miscellany</h6>
+Here's a collection of my favorite content I developed for A Hat in Time! There's a lot of fun stuff in here.
 </a>
 
-<a href="gameplay/seal-the-deal.html" class="project">
-<img src="images/tile_dlc1.png">
-<div class="date">2018</div>
+<a href="gfb/seal-the-deal.html" class="project">
+<img src="img/tile_dlc1.png">
+<div class="date">2017 - 2018</div>
 <h6>A Hat in Time: Seal the Deal</h6>
-From carnival cruises to cursed contracts, this Hat in Time expansion was quite a kerfuffle! This DLC contained both <b>Alpine Cruise</b> and <b>Death Wish</b>.
+From carnival cruises to cursed contracts, this Hat in Time expansion was quite a kerfuffle! This DLC contained both the <b>Alpine Cruise</b> mini-chapter and the <b>Death Wish</b> nightmare challenge mode.
 </a>
 
-<a href="gameplay/ahit-misc.html" class="project">
-<img src="images/tile_misc.png">
+<a href="gfb/nyakuza-metro.html" class="project">
+<img src="img/tile_dlc2.png">
 <div class="date">2018 - 2019</div>
-<h6>A Hat in Time</h6>
-A collection of various gameplay mechanics I developed for A Hat in Time! There are too many to list individually, so this is just a few of my favorites.
-</a>
-
-<span id="level"/>
-</div>
-
-<div class="paper">
-
-<h1>🏞️ Level Design</h1>
-
-<p>Listed below are a few samples of the level design work I did at Gears for Breakfast!</p>
-
-<a href="levels/gfb-game2.html" class="project">
-<img src="images/tile_game2.png">
-<div class="date">2019 - 2022</div>
-<h6>Gears for Breakfast's Second Game</h6>
-An abstract overview of some of my level work on an unannounced project.
-</a>
-
-<a href="levels/nyakuza-metro.html" class="project">
-<img src="images/tile_dlc2level.png">
-<div class="date">2019</div>
 <h6>A Hat in Time: Nyakuza Metro</h6>
-A collection of levels featuring Nyakuza Metro's ubiquitous Cat Trains!
+This Hat in Time expansion is centered around a colorful underground complex full of hairballs, diamond thieves, and trains pulled by giant cats!
 </a>
 
-<a href="levels/seal-the-deal.html" class="project">
-<img src="images/tile_dlc1level.png">
-<div class="date">2018</div>
-<h6>A Hat in Time: Death Wish</h6>
-A variety of level content made for A Hat in Time's brutal Death Wish mode!
-</a>
-
-<span id="docs"/>
-</div>
-
-<div class="paper">
-
-<h1>📑 Documentation</h1>
-
-<p>These are some examples of design documentation written for features in A Hat in Time!</p>
-
-<p>The way I write design docs is "thorough but flexible", leaving out specific numbers and not over-detaling features, and focusing more on the design intent. A lot can change over the course of development, and I figure the role of a design doc is to be more of a reference point than a step-by-step guide.</p>
-
-<p style="font-size:smaller;"><i>For legal reasons, this is not the real documentation used for these features, but a simulation of what the documentation would have looked like if it were written in 2022.</i></p>
-
-<a href="docs/cat-trains.html" class="project">
-<img src="images/tile_cattrain.png">
-<div class="date">2018</div>
-<h6>Nyakuza Metro: Cat Trains</h6>
-The Cat Trains are snake-like moving platforms that are the cornerstone mechanic of Nyakuza Metro. This documentation covers the movement of the trains, player interaction, placement of the tracks, and much more!
-</a>
-
-<a href="docs/ship-shape.html" class="project">
-<img src="images/tile_stacking.png">
-<div class="date">2018</div>
-<h6>Arctic Cruise: Ship Shape Minigame</h6>
-This minigame leads the player around a cruise ship while carrying a wobbling tower of items. This documentation covers all the systems and mechanics involved, and how they all fit together.
-</a>
-
-<span id="art"/>
-</div>
-
-<div class="paper">
-
-<h1>🎨 Art & Writing</h1>
-
-<p>At Gears for Breakfast I also did a variety of art and writing!</p>
-
-<a href="arts/ahit-cosmetics.html" class="project">
-<img src="images/tile_skins.png">
-<div class="date">2018 - 2019</div>
-<h6>A Hat in Time Cosmetics</h6>
-A gallery of hats and costumes I made for Hat Kid.
-</a>
-
-<a href="arts/misc-dialog.html" class="project">
-<img src="images/tile_writing.png">
-<div class="date">2018 - 2022</div>
-<h6>Gears for Breakfast: Assorted Dialogue</h6>
-I wrote a variety of dialogue for several of GFB's games as well.
+<a href="gfb/online-party.html" class="project">
+<img src="img/tile_online.png">
+<div class="date">2019</div>
+<h6>A Hat in Time: Online Party</h6>
+A Hat in Time's premier multiplayer mode, supporting up to 50 players in one lobby! Yes, it's as chaotic as it sounds.
 </a>
 
 </div>
+
+<div class="footer">Thanks for visiting!</div>
 
 <br><br>
 </body>

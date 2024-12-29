@@ -43,6 +43,27 @@ TITLE
 
 /*
 
+FOOTER
+
+*/
+
+.footer {
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	height: 40px;
+	top: 20px;
+	position: relative;
+	z-index: 100;
+	color: #b8eaa6;
+	font-weight: bold;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+
+/*
+
 HEADER
 
 */
@@ -108,6 +129,23 @@ HEADER
 .header-button-current:hover {
 	background: #FFFFFF;
 	transition: background 0.1s;
+}
+
+/*
+
+FOOTER BUTTONS
+
+*/
+
+.footer-buttons {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+	height: 0px;
+	top: -35px;
+	position: relative;
+	z-index: 100;
 }
 
 /*
@@ -232,6 +270,11 @@ a {
 	}
 
 	.header-buttons {
+		width: auto;
+		margin-right: 20px;
+	}
+
+	.footer-buttons {
 		width: auto;
 		margin-right: 20px;
 	}
