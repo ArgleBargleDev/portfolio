@@ -26,9 +26,11 @@
 
 <h3>Reacting to the Frame Data</h3>
 
-<p>At the core of this AI is its ability to read the frame data for the animations of the character it's piloting. Whenever the AI would make a decision, it analyzes each of the moves it can use, and compares the timing and placements of hitboxes and hurtboxes in relation to the player it's attacking. If the player is currently performing a move, it reads their frame data as well. And when the player isn't doing anything in particular, the AI will try and predict what the player is capable of if they were to trigger a move at that moment (this is why enemies will sometimes preemptively block when they see you jumping at them, before you even press the attack button).</p>
+<p>The core of this AI is its ability to scrub through the the frame data of animations. With Flash's animation-centric design, this was easy (and surprisingly performant). Whenever the AI would make a decision, it analyzes the full duration of all abilities and moves it can use, and compares the timing and placements of hitboxes and hurtboxes against those of their opponent, and picks one of the moves with the highest potential success.</p>
 
-<p>With this, and without any special case coding, the enemy has innate knowledge of when to put up their shield, how to use shield-breaker moves, when to use gap closers or dodge moves, how to capitalize on their opponent's long recovery time, how to jump over attacks, even how to take one step backward so an attack's hitbox will miss!</p>
+<p>Basically it looks into the future, scrubbing forward each animation, and the animations of nearby opponents, to estimate what's about to happen on what timing. If the opponent isn't doing anything in particular, the AI will evaluate the success of all the moves the opponent could possibly trigger (this is why enemies will sometimes preemptively block when they see you jumping toward them, before you even press the jump attack button).</p>
+
+<p>With this, and without any special case coding, the enemy has innate knowledge of when to put up their shield, how to use shield-breaker moves, when to use gap closers or dodge moves, when to jump if they want to use a jump attack, how to capitalize on their opponent's long recovery time, how to jump over attacks, even how to take one step backward so an attack's hitbox will miss!</p>
 
 <p>Since the AI is reading the frame data and making these decisions on the fly, there isn't actually any unique AI code for any of the different enemies. Even weird enemies (like the little orbs that only have one attack they can do while jumping) know how to pilot themselves as soon as the animations are done. This made the development of new enemies fast and easy!</p>
 
@@ -36,15 +38,15 @@
 
 <p>Obviously an AI that can read the animations is going to be frame-accurate in their defense and attack. When this system was first implemented, the AI would dodge every single one of my attacks and beat me relentlessly.</p>
 
-<p>As payback, I decided to give it a simulation of human error. I gave the AI a reaction time variable, which makes all the frame data is can see slightly outdated, allowing it to misread the situation. To add realism, I made this value fluctuate depending on what the opponent was doing, what the AI itself is doing, how many attacks the opponent is doing compared to the AI, how many other enemies are nearby, etc. This fluctuates throughout the fight, allowing you to break the enemy's focus if you rush them down. Likewise, if you are being too predictable, the enemy will become more vigilant.</p>
+<p>As payback, I decided to give it a simulation of human error. I gave the AI a "reaction time" variable, which makes all the frame data it's reading slightly outdated, causing it to misread the situation. To add realism, I made reaction time fluctuate depending on distractions, what the opponent was doing, what the AI itself is doing, how many attacks the opponent is doing compared to the AI, how many other enemies are nearby, etc. This fluctuates throughout the fight, allowing you to break the enemy's focus if you rush them down. Likewise, if you are being too predictable, the enemy will become more vigilant and stop you.</p>
 
-<p>If the enemy is sufficiently stressed out, they can hallucinate their opponent doing the wrong moves. This causes their reactions to become erratic, but still realistic, since they're reacting to what <i>could</i> be happening, and jumping to incorrect conclusions just like a human does.</p>
+<p>If the enemy is sufficiently stressed out, they can even hallucinate their opponent doing a completely different move from the one they're currently doing. This causes their reactions to become erratic, but still realistic, since they're reacting to what <i>could</i> be happening, and jumping to incorrect conclusions just like a human does.</p>
 
 <h3>Confidence and Cowardice</h3>
 
-<p>Finally, to give the enemies a bit more personality, I added a confidence variable. High confidence makes the AI over-value the success of their moves, where low confidence makes them over-value the success of their opponent's moves. This results in low confidence enemies keeping their distance and playing very defensive, while high confidence enemies go crazy and launch themselves to wherever you are, ignoring the imminent danger you pose.</p>
+<p>Finally, to give the enemies a bit more personality, I added a "confidence" variable. High confidence makes the AI overvalue the success of their moves, where low confidence makes them overvalue the success of their opponent's moves. This results in low confidence enemies keeping their distance and playing very defensive, while high confidence enemies go crazy and launch themselves to wherever you are, ignoring the imminent danger you pose.</p>
 
-<p>Confidence also fluctuates throughout the fight. If the enemy is suffering a lot of hit-stun, or if their opponent is being very active, their confidence will decrease. However, their confidence will increase if they're maintaining an advantageous position in combat, or if their opponent is simply not blocking very much.</p>
+<p>Confidence also fluctuates throughout the fight. If the enemy is suffering a lot of hitstun, or if their opponent is being very active, their confidence will decrease. However, their confidence will increase if they're maintaining an advantageous position in combat, or if their opponent is simply not blocking very much.</p>
 
 <p>All of these factors result in an enemy AI that plays these characters much like a normal human would, resulting in very dynamic fights for enemies of all types!</p>
 
