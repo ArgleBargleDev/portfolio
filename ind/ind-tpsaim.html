@@ -56,7 +56,7 @@
 <source src="vid/TPS_TwoStep.mp4" type="video/mp4">
 <p><a href="vid/TPS_TwoStep.mp4">Click Here to View</a></p>
 </video>
-<center><small><i>The obstructed shot trace is shown as a purple line. If there are two purple lines, the nearest line is the one used to trace enemies.</i></small></center>
+<center><small><i>The shot obstruction trace is shown as a purple line.</i></small></center>
 
 
 
@@ -125,11 +125,11 @@
 
 <h3>Leaning Around Corners</h3>
 
-<p><b>Leaning looks cool</b>, so it can easily be mistaken as existing purely for the purpose of style, but it also has a real mechanical purpose!</p>
+<p><b>Leaning looks cool</b>, so it can easily be mistaken as existing purely for style, but it also has a real mechanical purpose!</p>
 
-<p>When you're standing near a wall and your shot is obscured, leaning will activate automatically. This moves your shoulder point closer to the reticle, making it less obstructed by the wall, <b>reducing the aiming blind spot where you can see the enemy but can't shoot at them</b>.</p>
+<p>When you're standing close to a wall, there's often a wide blind spot where you can see the enemy, but you can't shoot at them. This is an acceptable limitation of the genre, but we can reduce this a little by <b>having your character automatically lean to the right when obstructed by a nearby wall</b>. This moves the shoulder point closer to the reticle, reducing the blind spot, and allowing you to fire more freely around the wall.</p>
 
-<p>Since this is technically cheating, it has to be balanced out by <b>leaning the character's physical body out of cover, so enemies can still shoot at you</b>. The reason this doesn't quite move the shoulder point directly onto the reticle is because the body would have to lean much farther to make that balanced, and that starts to look a little silly.</p>
+<p>To balance out the increased ability to aim around walls, the lean also <b>pulls the character's physical body out of cover, so enemies can still shoot at it</b>. Otherwise, the player would be firing from perfect cover.</p>
 
 <!-- leaning around corners, blind spot before/after. other player's perspective of a leaning character. -->
 <video width="75%" controls style="display:block; margin: 0 auto;">
@@ -153,6 +153,8 @@
 <h3>Backing Up Into Walls</h3>
 
 <p>A very common pain point in third person games of all types is having the camera hit a wall. The standard method for fixing this in shooters is to <b>zoom the camera in toward a point over the player's shoulder</b>. This point has to be inside the player's hitbox, so it doesn't clip into the wall. Ideally, this point is also the same height as the reticle, so your aim doesn't shift up or down when the camera is pulling in or out.</p>
+
+<p>If you want to get fancy with this, you can try strafing the camera to the side, which is a bit less abrasive than zooming way into the character. That might work in a platforming game, but since this is a shooter, the reticle can't be jostled to the side like that or it'll disrupt your aim. <b>Zooming in is the camera movement with the least amount of reticle shifting</b>, so I'm sticking with the standard solution for now.</p>
 
 <!-- pressing back and sides against the wall and shooting. -->
 <video width="75%" controls style="display:block; margin: 0 auto;">
