@@ -10,19 +10,226 @@
 <a href="../index.html#gfb"><div class="header-button">Gears for Breakfast</div></a>
 </div>
 
+<div class="paper"><h1 id="basics">Aiming and Obstructed Shots</h1>
+
+
+
+<h3>The Basics</h3>
+
+<p>When making a third person shooter, the first problem anyone faces is <b>the gun and the camera are far apart</b> compared to a first person shooter. If you have your gun face the same direction as the camera, their aim will be parallel, and a bullet shot from the gun won't converge with your aiming reticle until it disappears into the horizon.</p>
+
+<p>The usual solution is to <b>change the angle of the gun so it points at whatever the camera is pointed at</b>, creating a convergence point at the reticle. This method generally works, your shots will always hit your reticle, and many games stop here.</p>
+
+<p>However, this creates a few problems that you may already be familiar with if you play third person shooters.</p>
+
+
+
+<h3>Common Problems With Third Person Shooters</h3>
+
+<p>Since your camera can see around walls that your character can't, <b>your bullets will sometimes not be able to reach the location the camera is pointed at</b>, hitting a wall instead. This is generally forgivable as a limitation of the genre. In modern third person shooters, this is even highlighted by placing a red X or some other marker on the wall when it will obscure your shot.</p>
+
+<p>This becomes a bigger problem when you're aiming at enemies. <b>Aiming off to the right of an enemy will sometimes cause the enemy to be hit by bullets that should have missed</b>, resulting in inconsistent hit registration. Players can compensate for this by aiming based on the 3D path of the projectile, but even if you have advanced 3D spatial awareness, the path of the bullet changes based on what your reticle is pointing at behind the enemy.</p>
+
+<!-- hitting walls when aiming around them. hitting enemies when fired to the right of their head. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_Basic.mp4" type="video/mp4">
+<p><a href="vid/TPS_Basic.mp4">Click Here to View</a></p>
+</video>
+<center><small><i>Obstructed shots are shown with a red circle appearing around the impact point.</i></small></center>
+
+<p>This causes even more problems when the projectiles are slower, when you are leading your shots ahead of your enemy to hit them. Since the angle of your shot is different depending on if you're aiming directly at the enemy or at the wall behind them, <b>it's hard to predict where or when the bullet will actually cross the enemy's path</b>.</p>
+
+<p>The crux of the issue is: <b>when your shots are fired at an angle, they only line up with the reticle at one point</b>. This isn't the case in first person shooters. <b>If your shots are fired down the sight line of your camera, they will always lined up with the reticle</b>. But we can't just fire bullets from the camera in a third person shooter... right?</p>
+
+
+
+<h3>The Solution: Fire Bullets From the Camera</h3>
+
+<p>Of course, firing from the camera breaks the cardinal rule of third person shooters: that it is a third person doing the shooting. This is a problem because <b>the camera can see enemies when the player is behind a wall</b>, allowing the player to shoot enemies while completely hidden.</p>
+
+<p>So to determine when firing from the camera is appropriate, and when it's not, we trace a line from the character to the target, like we would if we were shooting a bullet from the gun. <b>If there's nothing obstructing the path from the character's gun to the camera's target, we can fire the bullet from the camera without breaking any rules</b>. This prevents players from shooting from behind walls, while granting the full ease of camera-oriented aiming when unobstructed.</p>
+
+<p>We can also selectively reduce the strictness of obstruction for different objects by pulling the convergence point between the camera aim and the gun's aim inward. This is done when tracing entities, so <b>enemies don't obstruct shots unless they're near point-blank range</b>, improving your accuracy against them and eliminating the accidental hits when shooting to the right of their body (and other artifacts of third person aiming).</p>
+
+<!-- two-step trace hitting around enemy and walls, with different trace lengths for enemy. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_TwoStep.mp4" type="video/mp4">
+<p><a href="vid/TPS_TwoStep.mp4">Click Here to View</a></p>
+</video>
+<center><small><i>The obstructed shot trace is shown as a purple line. If there are two purple lines, the nearest line is the one used to trace enemies.</i></small></center>
+
+
+
+<h3>Positioning The Shoulder Point</h3>
+
+<p><b>When we fire bullets from the character, we fire them from a point on their shoulder</b> instead of where the gun is. This extra height keeps the firing point close to the height of the reticle, reducing the vertical shifting of the shot when obstructed.</p>
+
+<p>The horizontal position being over the shoulder ensures if the player is firing at you, at least a sliver of their core body is visible. Pulling this inward closer to the body makes the game more fair, though it may make bullets hit walls more.</p>
+
+<p>The depth of the point being over the shoulder instead of over the extended arm with the gun keeps this point inside the player's world-colliding geometry, preventing it from ever clipping into walls, as well as allowing the player to hit enemies at point-blank even if their arm extends past the enemy.</p>
+
+<!-- very short video of going left and right facing ahead while shooting at/past a near wall on your left, showing how the bullets land at the same height as the cursor. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_Shoulder.mp4" type="video/mp4">
+<p><a href="vid/TPS_Shoulder.mp4">Click Here to View</a></p>
+</video>
+<center><small><i>The shoulder point is shown in these videos as a purple circle.</i></small></center>
+
+
+
+<h3>Positioning The Camera Point</h3>
+
+<p><b>When we fire bullets from the camera, we fire them from a point near the character along the camera's facing</b>, since we don't want to aim at anything behind the character. Placing this point even farther ahead of the character also prevents them from firing at something they aren't directly facing, like an enemy directly to the right of them.</p>
+
+<!-- very short video of crossing an enemy forward and backward while aiming at their head and shooting. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_CameraPoint.mp4" type="video/mp4">
+<p><a href="vid/TPS_CameraPoint.mp4">Click Here to View</a></p>
+</video>
+<center><small><i>The camera point is shown in these videos as a white circle floating ahead of the frustum when the camera is decoupled.</i></small></center>
+
+
+
+<h3>The Gun Point</h3>
+
+<p>Regardless of which of these points the shot is coming from, <b>we always show a fake bullet coming directly from the gun</b>. This is believable in most cases, even if it passes directly through objects.</p>
+
+<p>Other games that use this two-point system like <a href="https://www.google.com/search?q=fortnite">Fortnite</a> will often leave the fake bullet as is, or draw the bullet as blurry faded streak of light that you wouldn't notice clipping through objects in the heat of the moment. <a href="https://www.google.com/search?q=deadlock">Deadlock</a> employs a system that curves the trajectory of the fake bullet so it converges with the real bullet, which is usually hard to see unless you're paying close attention to the bullet trails.</p>
+
+<p>For the sake of brevity and readability (and laziness), I've elected to leave my bullets as is.</p>
+
+
+
+</div>
+
 <div class="paper">
 
-<h1>Third Person Aiming Mechanics</h1>
+<h1 id="advanced">Edge Cases</h1>
 
-<p><i>Whoops! You caught me in the middle of writing this section. Should be up later this week!</i></p>
 
-<center><img src="img/under-construction.gif"><br>
+
+<h3>Ignoring Small Obstructions</h3>
+
+<p>If the camera trace and shoulder trace hit within a small distance of each other, only the camera trace is used. This ensures <b>shots aren't obscured by anomalies in character geometry or very small bumps in the world</b>.</p>
+
+<p>This is useful for situations where you might be hitting an enemy's shoulder or arm when your reticle is directly on their head. Particularly important if head-shots are critical hits!</p>
+
+<!-- shot getting caught on enemy's arm, and fixed version. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_GreenCircle.mp4" type="video/mp4">
+<p><a href="vid/TPS_GreenCircle.mp4">Click Here to View</a></p>
+</video>
+<center><small><i>When the circle around the impact point turns green, obstruction is being ignored.</i></small></center>
+
+
+
+<h3>Leaning Around Corners</h3>
+
+<p><b>Leaning looks cool</b>, so it can easily be mistaken as existing purely for the purpose of style, but it also has a real mechanical purpose!</p>
+
+<p>When you're standing near a wall and your shot is obscured, leaning will activate automatically. This moves your shoulder point closer to the reticle, making it less obstructed by the wall, <b>reducing the aiming blind spot where you can see the enemy but can't shoot at them</b>.</p>
+
+<p>Since this is technically cheating, it has to be balanced out by <b>leaning the character's physical body out of cover, so enemies can still shoot at you</b>. The reason this doesn't quite move the shoulder point directly onto the reticle is because the body would have to lean much farther to make that balanced, and that starts to look a little silly.</p>
+
+<!-- leaning around corners, blind spot before/after. other player's perspective of a leaning character. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_Leaning.mp4" type="video/mp4">
+<p><a href="vid/TPS_Leaning.mp4">Click Here to View</a></p>
+</video>
+<br>
+
+<p>Leaning could also be used to make firing down from ledges easier, but I disabled that intentionally. Without it, firing down the left of a ledge is about as inconvenient as firing down the right of a ledge, which has parity.</p>
+
+
+
+</div>
+
+<div class="paper">
+
+<h1 id="walls">Handling Walls</h1>
+
+
+
+<h3>Backing Up Into Walls</h3>
+
+<p>A very common pain point in third person games of all types is having the camera hit a wall. The standard method for fixing this in shooters is to <b>zoom the camera in toward a point over the player's shoulder</b>. This point has to be inside the player's hitbox, so it doesn't clip into the wall. Ideally, this point is also the same height as the reticle, so your aim doesn't shift up or down when the camera is pulling in or out.</p>
+
+<!-- pressing back and sides against the wall and shooting. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_WallBack.mp4" type="video/mp4">
+<p><a href="vid/TPS_WallBack.mp4">Click Here to View</a></p>
+</video>
+<center><small><i>A small white loop is drawn coming out of the player's head to illustrate where the camera is zooming in to.</i></small></center>
+
+
+
+<h3>Pressing Forward Into Walls</h3>
+
+<p>Players don't usually press their face into walls unless they're trying to break the system. <b>We can make sure they don't shoot through walls</b> by checking if the camera point floating ahead of the character is inside or past any walls. The shoulder point is used as a fallback, since it can't be inside a wall (it's inside the player's world-colliding geometry).</p>
+
+<!-- pressing into the wall, clipping the camera point into the wall. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_WallPress.mp4" type="video/mp4">
+<p><a href="vid/TPS_WallPress.mp4">Click Here to View</a></p>
+</video>
+<br>
+
+
+
+</div>
+
+<div class="paper">
+
+<h1 id="weapons">Conventions for Other Weapon Types</h1>
+
+
+
+<h3>Shotguns and Weapon Spread</h3>
+
+<p>The deliberate bullet inaccuracy of shotguns and weapons with spread makes these aiming problems even more apparent. If a shotgun blast is fired directly from the location of the gun to the enemy, <b>missed shots will spray past the enemy at that weird angle</b>, landing far away from where you originally aimed.</p>
+
+<p>The solution here is dumb, but effective: <b>just run the obscured shot code (everything outlined above) on each individual bullet</b>. Missed shots will then land on walls and behind enemies creating the spread pattern you expect to see.</p>
+
+<!-- shotgun spraying bullets past the enemy, new version spraying more consistently. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_Shotgun.mp4" type="video/mp4">
+<p><a href="vid/TPS_Shotgun.mp4">Click Here to View</a></p>
+</video>
+<br>
+
+<hr><p><i>I'm working on a few more weapon types with other common aiming problems! More here at a later date.</i></p>
+
+
+<!--
+<h3>Targeted Dashes</h3>
+
+<p>((dash can miss if you are just dashing forward. to fix this, curve the dash so it aligns with the aim during travel.))</p>
+
+
+
+<h3>Beam Weapons</h3>
+
+<p>((beam problem and solution))</p>
+
+
+
+<h3>Ground Targeting</h3>
+
+<p>((ground targeting systems, targeting the high ground))</p>
+
+
+
+<h3>Auto-Aim</h3>
+
+<p>((auto-aim priority, cone/circle vs cylinder, and how it behaves with this system))</p>
+-->
+
 
 </div>
 
 <div class="footer-buttons"><a href="../index.html#indie"><div class="header-button">◀ Back</div></a></div>
 
-<div class="footer">Try another page!</div>
+<div class="footer">May your shots fly true!</div>
 
 <br><br>
 </body>
