@@ -199,16 +199,27 @@
 </video>
 <br>
 
+
+
+<h3>Aiming Dashes and Tackles</h3>
+
+<p>In <a href="https://www.google.com/search?q=marvel+rivals+magik+dash+hitbox">Marvel Rivals</a> there's a character with a dash that won't connect with the enemy if you aim directly at them. Since the character's body dashes directly forward, parallel with the camera's facing, <b>you have to make up for the camera offset by aiming slightly to the right of the enemy you want to hit</b>. This has prompted players to use the game's custom reticle system to make a reticle that is very wide, so they can use the edge of it to roughly line up dashes at mid range. This extra work shouldn't be necessary.</p>
+
+<p>In <a href="https://www.google.com/search?q=fortnite+kinetic+blade">Fortnite</a> this is solved by simply making the hitbox for the dash wide enough to compensate for the offset. This works, but it's still much more generous on the left side of your reticle, and you lose the precision of a narrow hitbox that makes the ability exciting to hit with.</p>
+
+<p>To solve this, I'm shifting the character to the right during the dash using animations, <b>lining up their body with the camera's aim while in flight</b>. This keeps the direct forward movement and tight hitbox of the dash intact, while allowing players to aim directly with their reticle to land the dash without having to make estimations.</p>
+
+<!-- magik missing dashes, shift version. -->
+<video width="75%" controls style="display:block; margin: 0 auto;">
+<source src="vid/TPS_Dash.mp4" type="video/mp4">
+<p><a href="vid/TPS_Dash.mp4">Click Here to View</a></p>
+</video>
+<br>
+
+
+
 <hr><p><i>I'm working on a few more weapon types with other common aiming problems! More here at a later date.</i></p>
-
-
 <!--
-<h3>Targeted Dashes</h3>
-
-<p>((dash can miss if you are just dashing forward. to fix this, curve the dash so it aligns with the aim during travel.))</p>
-
-
-
 <h3>Beam Weapons</h3>
 
 <p>((beam problem and solution))</p>
